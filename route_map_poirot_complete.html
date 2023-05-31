@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_48ef84e1e0166e945dd934e0eb2184ef {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iso8601-js-period@0.2.1/iso8601.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.control.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_48ef84e1e0166e945dd934e0eb2184ef" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_48ef84e1e0166e945dd934e0eb2184ef = L.map(
+                "map_48ef84e1e0166e945dd934e0eb2184ef",
+                {
+                    center: [0, 0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 1,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_b88f2f66edeb0f7c141ded189b8cf8f1 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_48ef84e1e0166e945dd934e0eb2184ef);
+        
+    
+            L.Control.TimeDimensionCustom = L.Control.TimeDimension.extend({
+                _getDisplayDateFormat: function(date){
+                    var newdate = new moment(date);
+                    console.log(newdate)
+                    return newdate.format("YYYY-MM-DD HH:mm:ss");
+                }
+            });
+            map_48ef84e1e0166e945dd934e0eb2184ef.timeDimension = L.timeDimension(
+                {
+                    period: "P1D",
+                }
+            );
+            var timeDimensionControl = new L.Control.TimeDimensionCustom(
+                {"autoPlay": true, "loopButton": false, "maxSpeed": 10, "minSpeed": 0.1, "playerOptions": {"loop": true, "startOver": true, "transitionTime": 200}, "position": "bottomleft", "speedSlider": true, "timeSliderDragUpdate": false}
+            );
+            map_48ef84e1e0166e945dd934e0eb2184ef.addControl(this.timeDimensionControl);
+
+            var geoJsonLayer = L.geoJson({"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-05-26", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-05-27", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-05-28", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-05-29", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [34.5731341, 0.5090396]}, "properties": {"time": "2023-05-30", "popup": "West"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [14.178373, 3.9894393]}, "properties": {"time": "2023-05-31", "popup": "East"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [14.178373, 3.9894393]}, "properties": {"time": "2023-06-01", "popup": "East"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-0.1083706, 51.5200487]}, "properties": {"time": "2023-06-02", "popup": "Hatton Garden"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-0.1083706, 51.5200487]}, "properties": {"time": "2023-06-03", "popup": "Hatton Garden"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-06-04", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-06-05", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-86.2385846, 33.1584497]}, "properties": {"time": "2023-06-06", "popup": "the moon"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-06-07", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-86.2385846, 33.1584497]}, "properties": {"time": "2023-06-08", "popup": "the moon"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-06-09", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-06-10", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-06-11", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-06-12", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-06-13", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-87.8818677438025, 43.06286945]}, "properties": {"time": "2023-06-14", "popup": "the East Side"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-06-15", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-06-16", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-06-17", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-06-18", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-06-19", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-06-20", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [128.0619728, 34.1347188]}, "properties": {"time": "2023-06-21", "popup": "South Sea"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-74.6632883, 39.5143268]}, "properties": {"time": "2023-06-22", "popup": "Atlantic"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-0.4337213, 52.5526468]}, "properties": {"time": "2023-06-23", "popup": "the Middle Ages"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [128.0619728, 34.1347188]}, "properties": {"time": "2023-06-24", "popup": "South Sea"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-06-25", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-06-26", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-06-27", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-0.4337213, 52.5526468]}, "properties": {"time": "2023-06-28", "popup": "the Middle Ages"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-35.8090698, -54.8432857]}, "properties": {"time": "2023-06-29", "popup": "the South Sea Islands"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-06-30", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-07-01", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-07-02", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-07-03", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-07-04", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-07-05", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-07-06", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-07-07", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-0.6680194, 51.4101286]}, "properties": {"time": "2023-07-08", "popup": "Ascot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-0.6680194, 51.4101286]}, "properties": {"time": "2023-07-09", "popup": "Ascot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-0.1350494, 51.5140654]}, "properties": {"time": "2023-07-10", "popup": "Soho"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-07-11", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [2.5464247, 42.5543449]}, "properties": {"time": "2023-07-12", "popup": "Northern France"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [2.5464247, 42.5543449]}, "properties": {"time": "2023-07-13", "popup": "Northern France"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-1.3210389, 46.7947224]}, "properties": {"time": "2023-07-14", "popup": "Boulogne"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-103.4183431, 35.1439219]}, "properties": {"time": "2023-07-15", "popup": "quay"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-103.4183431, 35.1439219]}, "properties": {"time": "2023-07-16", "popup": "quay"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-0.6680194, 51.4101286]}, "properties": {"time": "2023-07-17", "popup": "Ascot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-07-18", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-61.0006565, -21.0002179]}, "properties": {"time": "2023-07-19", "popup": "South America"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-07-20", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-07-21", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-07-22", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-07-23", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-07-24", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-0.4090319, 52.1097252]}, "properties": {"time": "2023-07-25", "popup": "Workmen"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-07-26", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-07-27", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-07-28", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [2.373885538932255, 49.96894815]}, "properties": {"time": "2023-07-29", "popup": "Somme"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-07-30", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-61.0006565, -21.0002179]}, "properties": {"time": "2023-07-31", "popup": "South America"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-08-01", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-08-02", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-08-03", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-08-04", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-61.0006565, -21.0002179]}, "properties": {"time": "2023-08-05", "popup": "South America"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-61.0006565, -21.0002179]}, "properties": {"time": "2023-08-06", "popup": "South America"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-61.0006565, -21.0002179]}, "properties": {"time": "2023-08-07", "popup": "South America"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-08-08", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-08-09", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-61.0006565, -21.0002179]}, "properties": {"time": "2023-08-10", "popup": "South America"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-61.0006565, -21.0002179]}, "properties": {"time": "2023-08-11", "popup": "South America"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-61.0006565, -21.0002179]}, "properties": {"time": "2023-08-12", "popup": "South America"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-61.0006565, -21.0002179]}, "properties": {"time": "2023-08-13", "popup": "South America"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [17.7578122, 11.5024338]}, "properties": {"time": "2023-08-14", "popup": "Africa"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-61.0006565, -21.0002179]}, "properties": {"time": "2023-08-15", "popup": "South America"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-61.0006565, -21.0002179]}, "properties": {"time": "2023-08-16", "popup": "South America"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-61.0006565, -21.0002179]}, "properties": {"time": "2023-08-17", "popup": "South America"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-61.0006565, -21.0002179]}, "properties": {"time": "2023-08-18", "popup": "South America"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-08-19", "popup": "Poirot"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-61.0006565, -21.0002179]}, "properties": {"time": "2023-08-20", "popup": "South America"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-1.1557387, 52.9559076]}, "properties": {"time": "2023-08-21", "popup": "the North West"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-75.94516744951865, 5.627871750000001]}, "properties": {"time": "2023-08-22", "popup": "Andes"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-61.0006565, -21.0002179]}, "properties": {"time": "2023-08-23", "popup": "South America"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-61.0006565, -21.0002179]}, "properties": {"time": "2023-08-24", "popup": "South America"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-61.0006565, -21.0002179]}, "properties": {"time": "2023-08-25", "popup": "South America"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-61.0006565, -21.0002179]}, "properties": {"time": "2023-08-26", "popup": "South America"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-61.0006565, -21.0002179]}, "properties": {"time": "2023-08-27", "popup": "South America"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-102.4107493, 34.2331373]}, "properties": {"time": "2023-08-28", "popup": "earth"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [21.736892, 38.2453137]}, "properties": {"time": "2023-08-29", "popup": "Poirot"}}]}, {
+                    pointToLayer: function (feature, latLng) {
+                        if (feature.properties.icon == 'marker') {
+                            if(feature.properties.iconstyle){
+                                return new L.Marker(latLng, {
+                                    icon: L.icon(feature.properties.iconstyle)});
+                            }
+                            //else
+                            return new L.Marker(latLng);
+                        }
+                        if (feature.properties.icon == 'circle') {
+                            if (feature.properties.iconstyle) {
+                                return new L.circleMarker(latLng, feature.properties.iconstyle)
+                                };
+                            //else
+                            return new L.circleMarker(latLng);
+                        }
+                        //else
+
+                        return new L.Marker(latLng);
+                    },
+                    style: function (feature) {
+                        return feature.properties.style;
+                    },
+                    onEachFeature: function(feature, layer) {
+                        if (feature.properties.popup) {
+                        layer.bindPopup(feature.properties.popup);
+                        }
+                        if (feature.properties.tooltip) {
+                        layer.bindTooltip(feature.properties.tooltip);
+                        }
+                    }
+                })
+
+            var timestamped_geo_json_79eed6b643e79ce8f6c633f3746a38f8 = L.timeDimension.layer.geoJson(
+                geoJsonLayer,
+                {
+                    updateTimeDimension: true,
+                    addlastPoint: true,
+                    duration: undefined,
+                }
+            ).addTo(map_48ef84e1e0166e945dd934e0eb2184ef);
+        
+</script>
+</html>

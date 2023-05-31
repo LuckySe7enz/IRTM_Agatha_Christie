@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_ee810be14902c0a6921660fe492654e5 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iso8601-js-period@0.2.1/iso8601.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.control.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_ee810be14902c0a6921660fe492654e5" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_ee810be14902c0a6921660fe492654e5 = L.map(
+                "map_ee810be14902c0a6921660fe492654e5",
+                {
+                    center: [0, 0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 1,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_ba7a847f0fa657264e9c085733a6fc71 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_ee810be14902c0a6921660fe492654e5);
+        
+    
+            L.Control.TimeDimensionCustom = L.Control.TimeDimension.extend({
+                _getDisplayDateFormat: function(date){
+                    var newdate = new moment(date);
+                    console.log(newdate)
+                    return newdate.format("YYYY-MM-DD HH:mm:ss");
+                }
+            });
+            map_ee810be14902c0a6921660fe492654e5.timeDimension = L.timeDimension(
+                {
+                    period: "P1D",
+                }
+            );
+            var timeDimensionControl = new L.Control.TimeDimensionCustom(
+                {"autoPlay": true, "loopButton": false, "maxSpeed": 10, "minSpeed": 0.1, "playerOptions": {"loop": true, "startOver": true, "transitionTime": 200}, "position": "bottomleft", "speedSlider": true, "timeSliderDragUpdate": false}
+            );
+            map_ee810be14902c0a6921660fe492654e5.addControl(this.timeDimensionControl);
+
+            var geoJsonLayer = L.geoJson({"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Point", "coordinates": [0.5894714, 50.856139]}, "properties": {"time": "2023-05-26", "popup": "Anchor Inn"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-0.12765, 51.5073359]}, "properties": {"time": "2023-05-27", "popup": "London"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [0.5824703, 50.8553888]}, "properties": {"time": "2023-05-28", "popup": "Hastings"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-0.1573831, 51.5192697]}, "properties": {"time": "2023-05-29", "popup": "Montagu Mansions"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [0.5824703, 50.8553888]}, "properties": {"time": "2023-05-30", "popup": "Hastings"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [0.5368502, 51.3906733]}, "properties": {"time": "2023-05-31", "popup": "Brompton Road"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-1.2649062, 52.5310214]}, "properties": {"time": "2023-06-01", "popup": "England"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [152.9715408, -27.4453096]}, "properties": {"time": "2023-06-02", "popup": "St. Johns Wood"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-95.33298595614491, 29.9841416]}, "properties": {"time": "2023-06-03", "popup": "IAh"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-83.49564966258242, 42.5464886]}, "properties": {"time": "2023-06-04", "popup": "Scotland Yard"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-100.445882, 39.7837304]}, "properties": {"time": "2023-06-05", "popup": "United States"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-1.2483705, 53.0963617]}, "properties": {"time": "2023-06-06", "popup": "Midland Railway"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-0.12765, 51.5073359]}, "properties": {"time": "2023-06-07", "popup": "London"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-0.14431380000000021, 51.54437325]}, "properties": {"time": "2023-06-08", "popup": "Havering"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-96.174529, 41.431519]}, "properties": {"time": "2023-06-09", "popup": "Japp"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-0.12765, 51.5073359]}, "properties": {"time": "2023-06-10", "popup": "London"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-0.7689260851028086, 51.7477385]}, "properties": {"time": "2023-06-11", "popup": "Hunters Lodge"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-0.12765, 51.5073359]}, "properties": {"time": "2023-06-12", "popup": "London"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-0.12765, 51.5073359]}, "properties": {"time": "2023-06-13", "popup": "London"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-0.12765, 51.5073359]}, "properties": {"time": "2023-06-14", "popup": "London"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-74.0060152, 40.7127281]}, "properties": {"time": "2023-06-15", "popup": "New York"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-122.8950075, 47.0451022]}, "properties": {"time": "2023-06-16", "popup": "Olympia"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-122.8950075, 47.0451022]}, "properties": {"time": "2023-06-17", "popup": "Olympia"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-0.12765, 51.5073359]}, "properties": {"time": "2023-06-18", "popup": "London"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-1.5079582, 52.4229961]}, "properties": {"time": "2023-06-19", "popup": "Threadneedle Street"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-0.12765, 51.5073359]}, "properties": {"time": "2023-06-20", "popup": "London"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-60.1472749, 53.5380898]}, "properties": {"time": "2023-06-21", "popup": "N.W.R"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-60.1472749, 53.5380898]}, "properties": {"time": "2023-06-22", "popup": "N.W.R"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-60.1472749, 53.5380898]}, "properties": {"time": "2023-06-23", "popup": "N.W.R"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-60.1472749, 53.5380898]}, "properties": {"time": "2023-06-24", "popup": "N.W.R"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-74.0060152, 40.7127281]}, "properties": {"time": "2023-06-25", "popup": "New York"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-74.0060152, 40.7127281]}, "properties": {"time": "2023-06-26", "popup": "New York"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-0.12765, 51.5073359]}, "properties": {"time": "2023-06-27", "popup": "London"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-0.12765, 51.5073359]}, "properties": {"time": "2023-06-28", "popup": "London"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-74.0060152, 40.7127281]}, "properties": {"time": "2023-06-29", "popup": "New York"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [31.2357257, 30.0443879]}, "properties": {"time": "2023-06-30", "popup": "Cairo"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [31.0160397139205, 30.003032150000003]}, "properties": {"time": "2023-07-01", "popup": "Pyramids of Gizeh"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [29.2675469, 26.2540493]}, "properties": {"time": "2023-07-02", "popup": "Egypt"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-122.2482257476487, 37.4714335]}, "properties": {"time": "2023-07-03", "popup": "Kensington Square"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-74.0060152, 40.7127281]}, "properties": {"time": "2023-07-04", "popup": "New York"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-74.0060152, 40.7127281]}, "properties": {"time": "2023-07-05", "popup": "New York"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-74.0060152, 40.7127281]}, "properties": {"time": "2023-07-06", "popup": "New York"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [29.2675469, 26.2540493]}, "properties": {"time": "2023-07-07", "popup": "Egypt"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-0.12765, 51.5073359]}, "properties": {"time": "2023-07-08", "popup": "London"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [4.6667145, 50.6402809]}, "properties": {"time": "2023-07-09", "popup": "Belgium"}}]}, {
+                    pointToLayer: function (feature, latLng) {
+                        if (feature.properties.icon == 'marker') {
+                            if(feature.properties.iconstyle){
+                                return new L.Marker(latLng, {
+                                    icon: L.icon(feature.properties.iconstyle)});
+                            }
+                            //else
+                            return new L.Marker(latLng);
+                        }
+                        if (feature.properties.icon == 'circle') {
+                            if (feature.properties.iconstyle) {
+                                return new L.circleMarker(latLng, feature.properties.iconstyle)
+                                };
+                            //else
+                            return new L.circleMarker(latLng);
+                        }
+                        //else
+
+                        return new L.Marker(latLng);
+                    },
+                    style: function (feature) {
+                        return feature.properties.style;
+                    },
+                    onEachFeature: function(feature, layer) {
+                        if (feature.properties.popup) {
+                        layer.bindPopup(feature.properties.popup);
+                        }
+                        if (feature.properties.tooltip) {
+                        layer.bindTooltip(feature.properties.tooltip);
+                        }
+                    }
+                })
+
+            var timestamped_geo_json_95dd4027baac4a9af39a09e3874b10d6 = L.timeDimension.layer.geoJson(
+                geoJsonLayer,
+                {
+                    updateTimeDimension: true,
+                    addlastPoint: true,
+                    duration: undefined,
+                }
+            ).addTo(map_ee810be14902c0a6921660fe492654e5);
+        
+</script>
+</html>
